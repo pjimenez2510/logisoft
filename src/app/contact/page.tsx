@@ -108,7 +108,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section - Mejora con un diseño más atractivo */}
-      <section className="w-full py-8 md:py-12 lg:py-16 bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
+      <section className="w-full py-6 md:py-10 lg:py-20 bg-primary relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="flex flex-col items-center justify-center space-y-6 text-center">
             <div className="space-y-4 max-w-3xl">
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="font-medium text-primary hover:text-primary/90"
+                  className="font-medium text-primary hover:text-primary/90 dark:text-white dark:hover:text-white/90"
                   onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Enviar mensaje
@@ -479,7 +479,7 @@ export default function ContactPage() {
             <Button 
               variant="secondary" 
               size="lg"
-              className="text-primary hover:text-primary/90 font-medium"
+              className="font-medium text-primary hover:text-primary/90 dark:text-white dark:hover:text-white/90"
               onClick={() => {
                 document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 setActiveTab("form"); // Cambiar al tab de formulario al hacer clic
