@@ -4,11 +4,26 @@ import type React from "react";
 
 import { useState } from "react";
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+
+// Componente del mapa de Google
+function GoogleMapComponent() {
+  return (
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.24116715457!2d-78.70582225168158!3d-1.3016395278740565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d38225e088295f%3A0xb16c26da66e6e4b3!2sUniversidad%20T%C3%A9cnica%20de%20Ambato!5e0!3m2!1ses!2sec!4v1742308183877!5m2!1ses!2sec"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  );
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -90,14 +105,18 @@ export default function ContactPage() {
                     >
                       Nombre completo
                     </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Tu nombre"
-                      required
-                    />
+                    <div className="relative">
+                      <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Tu nombre"
+                        className="pl-10"
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <label
@@ -106,15 +125,19 @@ export default function ContactPage() {
                     >
                       Correo electrónico
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="tu@email.com"
-                      required
-                    />
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="tu@email.com"
+                        className="pl-10"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -125,14 +148,19 @@ export default function ContactPage() {
                     >
                       Teléfono
                     </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Tu teléfono"
-                    />
+                    <div className="relative">
+                      <Phone className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+593 XX XXX XXXX"
+                        className="pl-10"
+                        pattern="\+593\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4}"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <label
@@ -141,14 +169,18 @@ export default function ContactPage() {
                     >
                       Asunto
                     </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Asunto de tu mensaje"
-                      required
-                    />
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                      <Input
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="Asunto de tu mensaje"
+                        className="pl-10"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -193,7 +225,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold">Dirección</h3>
                     <p className="text-gray-500 dark:text-gray-400">
-                      Calle Principal 123, Ciudad, País
+                      Av. Los Chasquis, Universidad Técnica de Ambato, Ambato, Ecuador
                     </p>
                   </div>
                 </div>
@@ -202,7 +234,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold">Teléfono</h3>
                     <p className="text-gray-500 dark:text-gray-400">
-                      +1 (555) 123-4567
+                      +593 98 765 4321
                     </p>
                   </div>
                 </div>
@@ -211,21 +243,13 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold">Correo electrónico</h3>
                     <p className="text-gray-500 dark:text-gray-400">
-                      info@empresa.com
+                      info@logisoft.com
                     </p>
                   </div>
                 </div>
               </div>
               <div className="relative h-[300px] w-full overflow-hidden rounded-lg">
-                <Image
-                  src="/placeholder.svg?height=300&width=600"
-                  alt="Mapa de ubicación"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                  <p className="text-center text-white">Mapa de ubicación</p>
-                </div>
+                <GoogleMapComponent />
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Horario de atención</h3>
