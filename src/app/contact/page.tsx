@@ -2,13 +2,53 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Mail, MapPin, Phone, User, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Phone, User, MessageSquare, Facebook, Twitter, Instagram, Loader2, AlertCircle, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+type FormErrors = {
+  [key: string]: string;
+};
+
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+const faqs: FAQ[] = [
+  {
+    question: "¿Cuál es su metodología de desarrollo de software?",
+    answer: "Utilizamos metodologías ágiles (Scrum/Kanban) para garantizar entregas incrementales, transparencia y adaptabilidad a cambios durante el desarrollo del proyecto."
+  },
+  {
+    question: "¿Cuál es el tiempo estimado para desarrollar un proyecto?",
+    answer: "El tiempo varía según la complejidad del proyecto. Típicamente, proyectos pequeños toman 4-8 semanas, mientras que proyectos más complejos pueden llevar 3-6 meses. Proporcionamos un cronograma detallado durante la fase de planificación."
+  },
+  {
+    question: "¿Qué tecnologías y stack de desarrollo utilizan?",
+    answer: "Trabajamos con tecnologías modernas como React, Next.js, Node.js, Python, y bases de datos SQL/NoSQL. Seleccionamos el stack más adecuado según los requerimientos específicos de cada proyecto."
+  },
+  {
+    question: "¿Ofrecen mantenimiento post-desarrollo?",
+    answer: "Sí, proporcionamos servicios de mantenimiento, actualizaciones y soporte técnico después del lanzamiento. Ofrecemos diferentes planes de mantenimiento según las necesidades del cliente."
+  },
+  {
+    question: "¿Cómo gestionan la seguridad en sus desarrollos?",
+    answer: "Implementamos las mejores prácticas de seguridad en todo el ciclo de desarrollo, incluyendo encriptación de datos, autenticación segura, y pruebas de vulnerabilidades regulares."
+  }
+];
+
+const socialLinks = [
+  { icon: Facebook, href: "https://facebook.com/logisoft", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com/logisoft", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/logisoft", label: "Instagram" }
+];
 
 // Componente del mapa de Google
 function GoogleMapComponent() {
@@ -26,6 +66,7 @@ function GoogleMapComponent() {
 }
 
 export default function ContactPage() {
+  const [expandedFaqs, setExpandedFaqs] = useState(new Array(faqs.length).fill(false));
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -83,7 +124,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
+      <section className="w-full py-8 md:py-16 lg:py-24 bg-white dark:bg-gray-950">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="flex flex-col justify-center space-y-4">
@@ -263,6 +304,61 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="w-full py-8 md:py-16 lg:py-24 bg-white dark:bg-gray-950">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Preguntas Frecuentes</h2>
+            <p className="text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Encuentra respuestas a las preguntas más comunes sobre nuestros servicios y procesos.
+            </p>
+          </div>
+          <div className="grid gap-4 max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={false}
+                className="rounded-lg border bg-background hover:bg-accent/5 transition-colors duration-200"
+              >
+                <button
+                  onClick={() => {
+                    const newExpandedState = [...Array(faqs.length)].map((_, i) => i === index);
+                    setExpandedFaqs(newExpandedState);
+                  }}
+                  className="w-full px-6 py-4 flex items-center justify-between text-left"
+                  aria-expanded={expandedFaqs[index]}
+                >
+                  <h3 className="text-lg font-semibold">{faq.question}</h3>
+                  <motion.div
+                    animate={{ rotate: expandedFaqs[index] ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="h-5 w-5 text-gray-500" />
+                  </motion.div>
+                </button>
+                <AnimatePresence initial={false}>
+                  {expandedFaqs[index] && (
+                    <motion.div
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginBottom: "1rem" },
+                        collapsed: { opacity: 0, height: 0, marginBottom: 0 }
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="px-6 overflow-hidden"
+                    >
+                      <p className="text-gray-500 dark:text-gray-400 pb-4">{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
