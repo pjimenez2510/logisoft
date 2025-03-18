@@ -8,10 +8,10 @@ import { useState, useEffect } from "react";
 export default function TeamPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  const carouselImages = [                                          //CARRUSEL
-    "/placeholder.svg?height=600&width=1200",
-    "/placeholder.svg?height=600&width=1200",
-    "/placeholder.svg?height=600&width=1200",
+  const carouselImages = [                                          
+    "/img/banner.jpg",
+    "/img/banner.jpg",
+    "/img/banner.jpg"
   ];
   
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function TeamPage() {
       name: "Karen Guatumillo",
       position: "CEO / Fundadora",
       bio: "Especialista en tecnologías web y móviles con más de 10 años de experiencia, Karen lidera Logisoft con visión innovadora y enfoque centrado en el cliente, transformando ideas en soluciones tecnológicas efectivas.",
-      image: "/img/hamilton.jpg",
+      image: "/img/karen.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "http://www.linkedin.com/in/karen-guatumillo-9345b7226",
         whatsapp: "+593 99 512 9311",
       },
     },
@@ -49,9 +49,9 @@ export default function TeamPage() {
       name: "Alex Lizano",
       position: "Director de Operaciones",
       bio: "Experto en metodologías ágiles y optimización de procesos, Alex asegura que todos los proyectos de Logisoft se entreguen a tiempo y con la más alta calidad, garantizando la satisfacción de nuestros clientes.",
-      image: "/img/hamilton.jpg",
+      image: "/img/alex.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/alex-lizano-8b333b226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         whatsapp: "+593 98 773 0252",
       },
     },
@@ -73,7 +73,7 @@ export default function TeamPage() {
       bio: "Con más de 15 años de experiencia en desarrollo de software, Hamilton ha liderado Logisoft desde su fundación, estableciendo una cultura de innovación continua y excelencia técnica en cada proyecto.",
       image: "/img/hamilton.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/hamilton-jumbo-b24a97330/",
         whatsapp: "+593 99 503 1688",
       },
     },
@@ -82,15 +82,15 @@ export default function TeamPage() {
       name: "Oscar Ramirez",
       position: "Director de Tecnología",
       bio: "Experto en arquitectura de sistemas y nuevas tecnologías, Oscar lidera nuestro equipo técnico para crear soluciones de software innovadoras y escalables que responden a las necesidades específicas de cada cliente.",
-      image: "/img/hamilton.jpg",
+      image: "/img/oscar.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/oscar-ram%C3%ADrez-manzano-b65941226",
         whatsapp: "099 284 9536",
       },
     },
   ];
   
-  const formatWhatsAppNumber = (number: string) => {                    //WHATTSAPP
+  const formatWhatsAppNumber = (number: string) => {                   
     let formattedNumber = number.replace(/\s+/g, '');
     if (!formattedNumber.startsWith('+')) {
       if (formattedNumber.startsWith('0')) {
@@ -117,7 +117,7 @@ export default function TeamPage() {
               src={image}
               alt="Equipo de Logisoft"
               fill
-              className="object-contain" 
+              className="object-cover" 
               style={{ filter: "brightness(0.9) contrast(1.1)" }}
             />
           </div>
@@ -293,7 +293,7 @@ export default function TeamPage() {
               <div className="relative h-[400px] w-full overflow-hidden rounded-xl shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent z-10 rounded-xl"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/img/trabajo.jpg"
                   alt="Únete al Equipo Logisoft"
                   fill
                   className="object-contain rounded-xl transition-transform hover:scale-105" 
