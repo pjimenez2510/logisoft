@@ -11,8 +11,7 @@ export function Footer() {
               <span className="text-2xl font-bold">Logisoft</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Soluciones innovadoras para impulsar tu negocio al siguiente
-              nivel.
+            Transformamos desafíos en oportunidades a través del trabajo colaborativo
             </p>
             <div className="flex space-x-4">
               <Link
@@ -123,13 +122,13 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Contacto</h3>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">
-                Calle Principal 123, Ciudad
+                Universidad Técnica de Ambato
               </li>
               <li className="text-sm text-muted-foreground">
-                info@empresa.com
+              Av. Los Chasquis y Rio Payamino
               </li>
               <li className="text-sm text-muted-foreground">
-                +1 (555) 123-4567
+              (03) 3700090 
               </li>
             </ul>
           </div>

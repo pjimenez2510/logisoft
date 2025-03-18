@@ -7,50 +7,48 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold text-white tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Soluciones innovadoras para tu negocio
-                </h1>
-                <p className="max-w-[600px] text-white">
-                  Transformamos ideas en resultados. Nuestro equipo de expertos
-                  está listo para llevar tu empresa al siguiente nivel.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="/contact">
-                  <Button className="inline-flex h-10 dark:bg-primary dark:text-white items-center justify-center rounded-md border text-primary border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
-                    Contáctanos
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href="/services">
-                  <Button
-                    variant={"outline"}
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
-                  >
-                    Nuestros Servicios
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="relative h-[350px] w-[350px] md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]">
-                <Image
-                  src="/placeholder.svg?height=500&width=500"
-                  alt="Hero Image"
-                  fill
-                  className="object-cover rounded-lg shadow-xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+      <section className="w-full bg-primary relative overflow-hidden py-12 md:py-24 lg:py-32 xl:py-48">
+  <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
+    <Image
+      src="/img/imagenDev.jpg"
+      alt="Equipo de Desarrollo"
+      fill
+      className="object-cover opacity-80"
+      priority
+    />
+    <div className="absolute inset-0 bg-black/40" />
+  </div>
+
+  <div className="relative z-10 container px-4 md:px-6 mx-auto">
+    <div className="grid lg:grid-cols-2 gap-12">
+      <div className="flex flex-col justify-center space-y-6 text-white max-w-xl">
+        <h1 className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight">
+          Desarrollando software con pasión y propósito
+        </h1>
+        <p className="text-lg">
+          Somos un equipo de estudiantes comprometidos con el aprendizaje, la innovación y el desarrollo de proyectos reales en el ámbito del software.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link href="/contact">
+            <Button className="inline-flex h-10 items-center justify-center rounded-md border text-primary border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+              Contáctanos
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href="/services">
+            <Button
+              variant="outline"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            >
+              Nuestros Proyectos
+            </Button>
+          </Link>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
@@ -61,30 +59,29 @@ export default function Home() {
                 Nuestras Fortalezas
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-primary dark:text-white">
-                Por qué elegirnos
+                Por qué destacamos
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Nos destacamos por nuestra dedicación a la excelencia y nuestro
-                compromiso con el éxito de nuestros clientes.
+              Estos son los pilares que guían nuestro trabajo y reflejan nuestro compromiso como estudiantes en formación y desarrollo constante.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
             {[
               {
-                title: "Experiencia",
+                title: "Colaboración Activa",
                 description:
-                  "Más de 10 años de experiencia en el sector, ofreciendo soluciones de calidad.",
+                  "Trabajamos en equipo para lograr soluciones eficientes",
               },
               {
-                title: "Innovación",
+                title: "Aprendizaje Continuo",
                 description:
-                  "Utilizamos las últimas tecnologías para garantizar resultados óptimos.",
+                  "Nos mantenemos actualizados en tecnologías y metodologías.",
               },
               {
-                title: "Compromiso",
+                title: "Creatividad Aplicada",
                 description:
-                  "Nos comprometemos con cada proyecto como si fuera nuestro propio negocio.",
+                  "Transformamos ideas en soluciones que generan impacto real.",
               },
             ].map((feature, index) => (
               <div
@@ -253,17 +250,16 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                ¿Listo para comenzar?
+              ¿Quieres ver lo que somos capaces de hacer?
               </h2>
               <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Contáctanos hoy mismo y descubre cómo podemos ayudarte a
-                alcanzar tus objetivos.
+              Explora nuestro portafolio y sé testigo de nuestro crecimiento a través de cada proyecto.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/contact">
                 <Button className="inline-flex h-10 items-center justify-center rounded-md bg-white text-primary px-8 text-sm font-medium shadow transition-colors hover:bg-gray-100">
-                  Contáctanos ahora
+                  Conócenos
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
