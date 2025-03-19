@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,11 +27,16 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between mx-auto">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold">Logisoft</span>
-          </Link>
-        </div>
+      <div className="flex items-center gap-2 ml-5">
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/Lvertical.png" 
+          alt="SOFNISEQUE" 
+          width={ 150 } 
+          height = { 50 } 
+        />
+      </Link>
+    </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
