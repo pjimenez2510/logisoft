@@ -104,7 +104,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
 
-      <section className="w-full py-6 md:py-10 lg:py-20 bg-primary relative overflow-hidden">
+      <section className="w-full py-6 md:py-10 lg:py-20 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="flex flex-col items-center justify-center space-y-6 text-center">
             <div className="space-y-4 max-w-3xl">
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="font-medium text-primary hover:text-primary/90 dark:text-white dark:hover:text-white/90"
+                  className="bg-primary font-medium text-white hover:text-primary/90 dark:text-white dark:hover:text-white/90"
                   onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Enviar mensaje
@@ -153,7 +153,7 @@ export default function ContactPage() {
                 onClick={() => setActiveTab("form")}
                 className={`flex-1 py-4 px-6 font-medium text-center transition-colors ${
                   activeTab === "form"
-                    ? "bg-primary text-white"
+                    ? "bg-gradient-to-r from-[#10085a] via-[#10085a] to-[#10085a]  text-white"
                     : "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -163,7 +163,7 @@ export default function ContactPage() {
                 onClick={() => setActiveTab("info")}
                 className={`flex-1 py-4 px-6 font-medium text-center transition-colors ${
                   activeTab === "info"
-                    ? "bg-primary text-white"
+                    ? "bg-gradient-to-r from-[#10085a] via-[#10085a] to-[#10085a]   text-white"
                     : "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -292,12 +292,12 @@ export default function ContactPage() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full py-6 text-base font-medium flex items-center justify-center gap-2"
+                    className="w-full py-6 text-base font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#10085a] via-[#10085a] to-[#10085a]"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <Loader2 className="h-5 w-5 animate-spin" />  
                         <span>Enviando...</span>
                       </>
                     ) : (
@@ -469,13 +469,13 @@ export default function ContactPage() {
           </div>
           
           {/* CTA antes del footer */}
-          <div className="mt-16 p-8 bg-primary rounded-xl text-white text-center max-w-3xl mx-auto">
+          <div className="mt-16 p-8 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 rounded-xl text-white text-center max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-3">¿No encontraste lo que buscabas?</h3>
             <p className="mb-6">Nuestro equipo está listo para ayudarte con cualquier duda o consulta adicional</p>
             <Button 
               variant="secondary" 
               size="lg"
-              className="font-medium text-primary hover:text-primary/90 dark:text-white dark:hover:text-white/90"
+              className="bg-primary font-medium text-white hover:text-primary/90 dark:text-white dark:hover:text-white/90"
               onClick={() => {
                 document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 setActiveTab("form"); // Cambiar al tab de formulario al hacer clic
