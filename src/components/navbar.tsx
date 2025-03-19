@@ -27,16 +27,16 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between mx-auto">
-      <div className="flex items-center gap-2 ml-5">
-      <Link href="/" className="flex items-center">
-        <Image
-          src="/Lvertical.png" 
-          alt="SOFNISEQUE" 
-          width={ 150 } 
-          height = { 50 } 
-        />
-      </Link>
-    </div>
+        <div className="flex items-center gap-2 ml-5">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/Lvertical.png"
+              alt="SOFNISEQUE"
+              width={150}
+              height={50}
+            />
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
@@ -53,12 +53,10 @@ export function Navbar() {
               {route.label}
             </Link>
           ))}
-          <ThemeToggle />
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"

@@ -7,48 +7,49 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full bg-primary relative overflow-hidden py-12 md:py-24 lg:py-32 xl:py-48">
-  <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
-    <Image
-      src="/img/imagenDev.jpg"
-      alt="Equipo de Desarrollo"
-      fill
-      className="object-cover opacity-80"
-      priority
-    />
-    <div className="absolute inset-0 bg-black/40" />
-  </div>
-
-  <div className="relative z-10 container px-4 md:px-6 mx-auto">
-    <div className="grid lg:grid-cols-2 gap-12">
-      <div className="flex flex-col justify-center space-y-6 text-white max-w-xl">
-        <h1 className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight">
-          Desarrollando software con pasión y propósito
-        </h1>
-        <p className="text-lg">
-          Somos un equipo de estudiantes comprometidos con el aprendizaje, la innovación y el desarrollo de proyectos reales en el ámbito del software.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="/contact">
-            <Button className="inline-flex h-10 items-center justify-center rounded-md border text-primary border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
-              Contáctanos
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-          <Link href="/services">
-            <Button
-              variant="outline"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
-            >
-              Nuestros Proyectos
-            </Button>
-          </Link>
+      <section className="w-full bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden py-12 md:py-24 lg:py-32 xl:py-48">
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
+          <Image
+            src="/img/imagenDev.jpg"
+            alt="Equipo de Desarrollo"
+            fill
+            className="object-cover opacity-80"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
+        <div className="relative z-10 container px-4 md:px-6 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="flex flex-col justify-center space-y-6 text-white max-w-xl">
+              <h1 className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight">
+                Desarrollando software con pasión y propósito
+              </h1>
+              <p className="text-lg">
+                Somos un equipo de estudiantes comprometidos con el aprendizaje,
+                la innovación y el desarrollo de proyectos reales en el ámbito
+                del software.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact">
+                  <Button className="inline-flex h-10 items-center justify-center rounded-md border text-primary border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+                    Contáctanos
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/services">
+                  <Button
+                    variant="outline"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  >
+                    Nuestros Proyectos
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
@@ -62,7 +63,9 @@ export default function Home() {
                 Por qué destacamos
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Estos son los pilares que guían nuestro trabajo y reflejan nuestro compromiso como estudiantes en formación y desarrollo constante.
+                Estos son los pilares que guían nuestro trabajo y reflejan
+                nuestro compromiso como estudiantes en formación y desarrollo
+                constante.
               </p>
             </div>
           </div>
@@ -189,17 +192,15 @@ export default function Home() {
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2">
             {[
               {
-                title: "Proyecto Alpha",
-                description:
-                  "Transformación digital completa para una empresa líder en su sector.",
-                image: "/placeholder.svg?height=400&width=600",
+                title: "RentCar",
+                description: "Sistema de gestión de alquiler de vehículos.",
+                image: "/img/project-1.png",
                 link: "/portfolio#alpha",
               },
               {
-                title: "Proyecto Beta",
-                description:
-                  "Desarrollo de una plataforma innovadora que revolucionó la experiencia del usuario.",
-                image: "/placeholder.svg?height=400&width=600",
+                title: "Livestock Management",
+                description: "Sistema de gestión de ganadería.",
+                image: "/img/project-2.png",
                 link: "/portfolio#beta",
               },
             ].map((project, index) => (
@@ -245,15 +246,16 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 text-primary-foreground">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              ¿Quieres ver lo que somos capaces de hacer?
+                ¿Quieres ver lo que somos capaces de hacer?
               </h2>
               <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Explora nuestro portafolio y sé testigo de nuestro crecimiento a través de cada proyecto.
+                Explora nuestro portafolio y sé testigo de nuestro crecimiento a
+                través de cada proyecto.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
