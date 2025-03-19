@@ -1,20 +1,14 @@
 "use client";
 
-import type React from "react";
-
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Mail, MapPin, Phone, User, MessageSquare, Facebook, Twitter, Instagram, Loader2, AlertCircle, ChevronDown, Send, Clock, Calendar } from "lucide-react";
+import { useState } from "react";
+import { Mail, MapPin, Phone, User, MessageSquare, Facebook, Twitter, Instagram, Loader2, ChevronDown, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 
-type FormErrors = {
-  [key: string]: string;
-};
+// Removed unused imports: AlertCircle, Calendar
 
 type FAQ = {
   question: string;
@@ -28,6 +22,10 @@ const faqs: FAQ[] = [
   },
   {
     question: "¿Cuál es el tiempo estimado para desarrollar un proyecto?",
+    answer: "El tiempo varía según la complejidad del proyecto. Típicamente, proyectos pequeños toman 4-8 semanas, mientras que proyectos más complejos pueden llevar 3-6 meses. Proporcionamos un cronograma detallado durante la fase de planificación."
+  },
+  {
+    question: "¿Qué tecnologías y stack de desarrollo utilizan?",
     answer: "El tiempo varía según la complejidad del proyecto. Típicamente, proyectos pequeños toman 4-8 semanas, mientras que proyectos más complejos pueden llevar 3-6 meses. Proporcionamos un cronograma detallado durante la fase de planificación."
   },
   {
@@ -50,7 +48,6 @@ const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/logisoft", label: "Instagram" }
 ];
 
-// Componente del mapa de Google
 function GoogleMapComponent() {
   return (
     <iframe
@@ -88,7 +85,6 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast.success("Mensaje enviado", {
@@ -107,7 +103,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Hero Section - Mejora con un diseño más atractivo */}
+
       <section className="w-full py-6 md:py-10 lg:py-20 bg-primary relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="flex flex-col items-center justify-center space-y-6 text-center">
@@ -140,17 +136,17 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        {/* Decorative elements */}
+
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-yellow-300 blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-blue-500 blur-3xl"></div>
         </div>
       </section>
 
-      {/* Contact Form and Info - Con pestañas en todas las pantallas */}
+
       <section id="contact-form" className="w-full py-16 md:py-24 bg-white dark:bg-gray-950 relative">
         <div className="container px-4 md:px-6 mx-auto max-w-6xl">
-          {/* Tabs para todas las pantallas */}
+
           <div className="max-w-3xl mx-auto mb-10">
             <div className="flex border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden mb-8">
               <button
@@ -176,9 +172,9 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contenedor de contenido de pestañas */}
+
           <div className="max-w-4xl mx-auto">
-            {/* Form Column */}
+
             {activeTab === "form" && (
               <div className="flex flex-col justify-center space-y-6 bg-white dark:bg-gray-950 rounded-xl p-6 shadow-sm dark:shadow-none border border-gray-100 dark:border-gray-800">
                 <div className="space-y-3">
