@@ -12,7 +12,7 @@ export default function PortfolioPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-primary">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -41,11 +41,10 @@ export default function PortfolioPage() {
                   Caso de Éxito
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Proyecto Alpha
+                  RentCar
                 </h2>
                 <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Transformación digital completa para una empresa líder en su
-                  sector.
+                  Sistema de gestión de alquiler de vehículos.
                 </p>
               </div>
               <div className="space-y-4">
@@ -87,9 +86,10 @@ export default function PortfolioPage() {
             <div className="flex items-center justify-center">
               <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
                 <Image
-                  src="https://website-assets-fw.freshworks.com/attachments/ckrw8b8kp016dc7g0ydqszsko-fsa-chat-campaigns.one-half.png"
+                  src="/img/project-1.png"
                   alt="Proyecto Alpha"
-                  fill
+                  width={1000}
+                  height={1000}
                   className="object-cover"
                 />
               </div>
@@ -108,9 +108,10 @@ export default function PortfolioPage() {
             <div className="flex items-center justify-center order-2 lg:order-1">
               <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
                 <Image
-                  src="https://www.baulphp.com/wp-content/uploads/edd/2021/11/sistema-gesnet.png"
+                  src="/img/project-2.png"
                   alt="Proyecto Beta"
-                  fill
+                  width={1000}
+                  height={1000}
                   className="object-cover"
                 />
               </div>
@@ -121,28 +122,28 @@ export default function PortfolioPage() {
                   Innovación
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Proyecto Beta
+                  Livestock Management
                 </h2>
                 <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Desarrollo de una plataforma innovadora que revolucionó la
-                  experiencia del usuario.
+                  Sistema de gestión de ganadería.
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">El Desafío</h3>
                   <p className="text-gray-500 dark:text-gray-400">
-                    El cliente buscaba crear una experiencia de usuario única
-                    que diferenciara su marca en un mercado altamente
-                    competitivo.
+                    La empresa necesitaba modernizar sus sistemas obsoletos y
+                    mejorar la eficiencia operativa para mantenerse competitiva
+                    en un mercado en rápida evolución.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">Nuestra Solución</h3>
                   <p className="text-gray-500 dark:text-gray-400">
-                    Diseñamos y desarrollamos una plataforma intuitiva y
-                    atractiva con características innovadoras que simplificaron
-                    la interacción del usuario y mejoraron la retención.
+                    Desarrollamos e implementamos una plataforma digital
+                    integral que automatizó procesos clave, mejoró la
+                    colaboración interna y proporcionó análisis de datos en
+                    tiempo real.
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -168,7 +169,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 text-primary-foreground">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
