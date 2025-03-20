@@ -24,7 +24,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "¿Qué tecnologías y stack de desarrollo utilizan?",
-    answer: "El tiempo varía según la complejidad del proyecto. Típicamente, proyectos pequeños toman 4-8 semanas, mientras que proyectos más complejos pueden llevar 3-6 meses. Proporcionamos un cronograma detallado durante la fase de planificación."
+    answer: "Trabajamos con un stack tecnológico moderno y robusto que incluye: Frontend con React.js y Next.js para crear interfaces de usuario potentes y optimizadas para SEO; Backend con Node.js, Nest.js y Express para APIs escalables; Bases de datos SQL (PostgreSQL, MySQL) y NoSQL (MongoDB); Servicios en la nube con AWS, Azure o Google Cloud; Desarrollo móvil con React Native y Flutter. Seleccionamos las tecnologías más adecuadas según los requerimientos específicos de cada proyecto y las últimas tendencias de la industria."
   },
   {
     question: "¿Qué tecnologías y stack de desarrollo utilizan?",
