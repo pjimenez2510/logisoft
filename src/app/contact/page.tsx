@@ -294,6 +294,19 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full py-6 text-base font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#10085a] via-[#10085a] to-[#10085a]"
                     disabled={isSubmitting}
+                    onClick={() => {
+                      const message = encodeURIComponent(
+                        `SOLICITUD DE CONTACTO - LOGISOFT\n\n` +
+                        `Información del Cliente:\n` +
+                        `Nombre: ${formData.name}\n` +
+                        `Correo: ${formData.email}\n` +
+                        `Teléfono: ${formData.phone}\n\n` +
+                        `Asunto: ${formData.subject}\n\n` +
+                        `Mensaje:\n${formData.message}\n\n` +
+                        `Enviado desde el formulario de contacto de Logisoft`
+                      );
+                      window.open(`https://wa.me/593995884117?text=${message}`, '_blank');
+                    }}
                   >
                     {isSubmitting ? (
                       <>
@@ -342,7 +355,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="font-bold text-lg mb-1">Teléfono</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      +593 98 765 4321
+                      +593 995884117
                     </p>
                   </div>
                   
