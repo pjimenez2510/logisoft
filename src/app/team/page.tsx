@@ -3,23 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Phone } from "lucide-react";
-import { useState, useEffect } from "react";
 
 export default function TeamPage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const carouselImages = [                                          
-    "/img/banner.jpg",
-    "/img/banner.jpg",
-    "/img/banner.jpg"
-  ];
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [carouselImages.length]);
 
   const teamMembers = [
     {
@@ -104,48 +89,23 @@ export default function TeamPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="w-full h-96 relative overflow-hidden">
-        {carouselImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10" />
-            <Image
-              src={image}
-              alt="Equipo de Logisoft"
-              fill
-              className="object-cover" 
-              style={{ filter: "brightness(0.9) contrast(1.1)" }}
-            />
-          </div>
-        ))}
-        <div className="container px-4 md:px-6 mx-auto h-full flex items-center relative z-20">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center w-full">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white drop-shadow-md">
-                Nuestro Equipo Logisoft
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+          <div className="w-full h-full bg-[url('/images/pattern.svg')] bg-no-repeat bg-cover"></div>
+        </div>
+        
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center">
+            <div className="space-y-4 max-w-3xl">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
+                Nuestro <span className="text-blue-400">Equipo</span>
               </h1>
-              <p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed drop-shadow-md">
-                Conoce a los profesionales apasionados que hacen posible nuestra
-                misión de desarrollar soluciones de software personalizadas que transforman los negocios de nuestros clientes.
+              <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+              <p className="max-w-[900px] text-gray-100 text-lg md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed mt-6">
+                Conoce a los profesionales apasionados que hacen posible nuestra misión de desarrollar soluciones de software personalizadas que transforman los negocios de nuestros clientes.
               </p>
             </div>
           </div>
-        </div>
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
-          {carouselImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? "bg-white w-6" : "bg-white/50 hover:bg-white/70"
-              }`}
-              aria-label={`Ir a la imagen ${index + 1}`}
-            />
-          ))}
         </div>
       </section>
 

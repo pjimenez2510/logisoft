@@ -11,24 +11,27 @@ export const metadata = {
 export default function PortfolioPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
-                Nuestro Portafolio
+      
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+          <div className="w-full h-full bg-[url('/images/pattern.svg')] bg-no-repeat bg-cover"></div>
+        </div>
+        
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center">
+            <div className="space-y-4 max-w-3xl">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
+                Nuestro <span className="text-blue-400">Portafolio</span>
               </h1>
-              <p className="max-w-[900px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Descubre algunos de nuestros proyectos más destacados y cómo
-                hemos ayudado a nuestros clientes a alcanzar sus objetivos.
+              <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+              <p className="max-w-[900px] text-gray-100 text-lg md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed mt-6">
+                Descubre algunos de nuestros proyectos más destacados y cómo hemos ayudado a nuestros clientes a alcanzar sus objetivos.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Project 1 */}
       <section
         className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950"
         id="alpha"

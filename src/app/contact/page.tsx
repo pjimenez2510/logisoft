@@ -8,8 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Removed unused imports: AlertCircle, Calendar
-
 type FAQ = {
   question: string;
   answer: string;
@@ -26,7 +24,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "¿Qué tecnologías y stack de desarrollo utilizan?",
-    answer: "El tiempo varía según la complejidad del proyecto. Típicamente, proyectos pequeños toman 4-8 semanas, mientras que proyectos más complejos pueden llevar 3-6 meses. Proporcionamos un cronograma detallado durante la fase de planificación."
+    answer: "Trabajamos con un stack tecnológico moderno y robusto que incluye: Frontend con React.js y Next.js para crear interfaces de usuario potentes y optimizadas para SEO; Backend con Node.js, Nest.js y Express para APIs escalables; Bases de datos SQL (PostgreSQL, MySQL) y NoSQL (MongoDB); Servicios en la nube con AWS, Azure o Google Cloud; Desarrollo móvil con React Native y Flutter. Seleccionamos las tecnologías más adecuadas según los requerimientos específicos de cada proyecto y las últimas tendencias de la industria."
   },
   {
     question: "¿Qué tecnologías y stack de desarrollo utilizan?",
@@ -104,22 +102,26 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
 
-      <section className="w-full py-6 md:py-10 lg:py-20 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-r from-[#10085a] via-[#000030] to-[#1F1F1F] dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+          <div className="w-full h-full bg-[url('/images/pattern.svg')] bg-no-repeat bg-cover"></div>
+        </div>
+        
         <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-6 text-center">
+          <div className="flex flex-col items-center justify-center space-y-8 text-center">
             <div className="space-y-4 max-w-3xl">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-sm">
-                <span >Contáctanos</span>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
+                <span className="text-blue-400">Contáctanos</span>
               </h1>
-              <p className="max-w-[900px] text-white/90 text-lg md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed font-light">
-                Estamos aquí para responder tus preguntas y ayudarte con tus
-                necesidades. Nuestro equipo está listo para asistirte.
+              <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+              <p className="max-w-[900px] text-gray-100 text-lg md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed mt-6">
+                Estamos aquí para responder tus preguntas y ayudarte con tus necesidades. Nuestro equipo está listo para asistirte.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 mt-4">
+              <div className="flex flex-wrap justify-center gap-4 pt-6">
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="bg-primary font-medium text-white hover:text-primary/90 dark:text-white dark:hover:text-white/90"
+                  className="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium"
                   onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Enviar mensaje
@@ -127,7 +129,7 @@ export default function ContactPage() {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="bg-transparent border-white text-white hover:bg-white/10"
+                  className="px-8 py-3 bg-transparent border border-white text-white rounded-md hover:bg-white/10 transition-colors duration-300 font-medium"
                   onClick={() => document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Ver preguntas frecuentes
@@ -136,13 +138,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-yellow-300 blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-blue-500 blur-3xl"></div>
-        </div>
       </section>
-
 
       <section id="contact-form" className="w-full py-16 md:py-24 bg-white dark:bg-gray-950 relative">
         <div className="container px-4 md:px-6 mx-auto max-w-6xl">
@@ -294,6 +290,19 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full py-6 text-base font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#10085a] via-[#10085a] to-[#10085a]"
                     disabled={isSubmitting}
+                    onClick={() => {
+                      const message = encodeURIComponent(
+                        `SOLICITUD DE CONTACTO - LOGISOFT\n\n` +
+                        `Información del Cliente:\n` +
+                        `Nombre: ${formData.name}\n` +
+                        `Correo: ${formData.email}\n` +
+                        `Teléfono: ${formData.phone}\n\n` +
+                        `Asunto: ${formData.subject}\n\n` +
+                        `Mensaje:\n${formData.message}\n\n` +
+                        `Enviado desde el formulario de contacto de Logisoft`
+                      );
+                      window.open(`https://wa.me/593995884117?text=${message}`, '_blank');
+                    }}
                   >
                     {isSubmitting ? (
                       <>
@@ -342,7 +351,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="font-bold text-lg mb-1">Teléfono</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      +593 98 765 4321
+                      +593 995884117
                     </p>
                   </div>
                   
