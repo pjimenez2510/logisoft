@@ -58,6 +58,7 @@ export default function Page() {
                   <div className="relative aspect-video overflow-hidden rounded-lg">
                     <iframe
                       className="w-full h-full"
+
                       src="https://www.youtube.com/embed/aLZM13FL2Og"
                       title="Tutorial de ClickUp"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -177,6 +178,161 @@ export default function Page() {
                         </p>
                       </div>
                     </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-lg">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-2xl font-bold text-primary">
+                    Curva de aprendizaje
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Dominar ClickUp requiere tiempo y práctica, pero su diseño
+                    intuitivo facilita una adopción progresiva. La plataforma
+                    ofrece una experiencia escalable que se adapta al nivel de
+                    experiencia de cada usuario.
+                  </p>
+
+                  <div className="w-full py-8">
+                    <svg viewBox="0 0 1000 200" className="w-full h-auto">
+                      <path
+                        d="M 50 150 C 300 100, 700 100, 950 50"
+                        fill="none"
+                        stroke="#334155"
+                        strokeWidth="4"
+                      />
+
+                      {[
+                        { x: 50, y: 150, label: "Principiante" },
+                        { x: 350, y: 110, label: "Intermedio" },
+                        { x: 650, y: 90, label: "Avanzado" },
+                        { x: 950, y: 50, label: "Experto" },
+                      ].map((point, index) => (
+                        <g key={index}>
+                          <circle
+                            cx={point.x}
+                            cy={point.y}
+                            r="8"
+                            fill="#3b82f6"
+                          />{" "}
+                          {/* Azul */}
+                          <text
+                            x={point.x}
+                            y={point.y + 25}
+                            textAnchor="middle"
+                            fontSize="14"
+                            fill="#4b5563"
+                          >
+                            {point.label}
+                          </text>
+                        </g>
+                      ))}
+                    </svg>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="p-4 rounded-lg border bg-slate-50 dark:bg-slate-900">
+                      <h3 className="font-semibold text-lg mb-2">
+                        Fase inicial (1-2 semanas)
+                      </h3>
+                      <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span>Familiarización con la interfaz básica</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span>Creación y gestión de tareas simples</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span>Uso de la vista lista y tablero Kanban</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-4 rounded-lg border bg-slate-50 dark:bg-slate-900">
+                      <h3 className="font-semibold text-lg mb-2">
+                        Fase intermedia (2-4 semanas)
+                      </h3>
+                      <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-yellow-500" />
+                          <span>Personalización de flujos de trabajo</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-yellow-500" />
+                          <span>Uso de campos personalizados y etiquetas</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-yellow-500" />
+                          <span>
+                            Utilización de múltiples vistas de proyectos
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-4 rounded-lg border bg-slate-50 dark:bg-slate-900">
+                      <h3 className="font-semibold text-lg mb-2">
+                        Fase avanzada (1-2 meses)
+                      </h3>
+                      <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-orange-500" />
+                          <span>Configuración de automatizaciones básicas</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-orange-500" />
+                          <span>Gestión de equipos y permisos</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-orange-500" />
+                          <span>
+                            Uso de objetivos y seguimiento de progreso
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-4 rounded-lg border bg-slate-50 dark:bg-slate-900">
+                      <h3 className="font-semibold text-lg mb-2">
+                        Fase experta (2-3 meses)
+                      </h3>
+                      <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-red-500" />
+                          <span>Creación de automatizaciones complejas</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-red-500" />
+                          <span>
+                            Integración con APIs y herramientas externas
+                          </span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-red-500" />
+                          <span>Personalización avanzada de la plataforma</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-100 dark:border-blue-800 mt-4">
+                    <h3 className="font-semibold text-lg flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                      <MessageCircle className="h-5 w-5" />
+                      Recomendación
+                    </h3>
+                    <p className="text-sm text-blue-600 dark:text-blue-300 mt-1">
+                      La mejor estrategia es comenzar con funcionalidades
+                      básicas e ir incorporando gradualmente características más
+                      avanzadas. ClickUp ofrece recursos de aprendizaje como
+                      videos tutoriales y documentación detallada para facilitar
+                      este proceso.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
