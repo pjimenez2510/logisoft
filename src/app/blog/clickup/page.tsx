@@ -58,7 +58,7 @@ export default function Page() {
                   <div className="relative aspect-video overflow-hidden rounded-lg">
                     <iframe
                       className="w-full h-full"
-                      src="https://www.youtube.com/embed/JmcVjP8m02k"
+                      src="https://www.youtube.com/embed/aLZM13FL2Og"
                       title="Tutorial de ClickUp"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -483,8 +483,6 @@ export default function Page() {
                       { name: "Web", icon: "🌐" },
                       { name: "iOS", icon: "📱" },
                       { name: "Android", icon: "📱" },
-                      { name: "Windows", icon: "💻" },
-                      { name: "macOS", icon: "💻" },
                     ].map((app, index) => (
                       <div
                         key={index}
