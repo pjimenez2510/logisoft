@@ -20,6 +20,16 @@ export default function ProyectosPage() {
       image: "/img/blog/clickup.webp",
       slug: "clickup",
     },
+    {
+      id: 2,
+      title: "Next.js",
+      excerpt:
+        "Next.js es un framework de React diseñado para crear aplicaciones web rápidas y escalables, ofreciendo renderizado, enrutamiento y optimizaciones automáticas.",
+      date: "Mayo, 2025",
+      categoria: "Desarrollo Web",
+      image: "/img/blog/nextjs-icon.png",
+      slug: "nextjs",
+    },
   ];
 
   return (
@@ -53,16 +63,15 @@ export default function ProyectosPage() {
                 key={proyecto.id}
                 className="group flex flex-col h-full overflow-hidden rounded-xl border bg-background shadow-md transition-all hover:shadow-lg"
               >
-                <div className="relative w-full overflow-hidden">
-                  <Image
-                    src={proyecto.image || "/api/placeholder/800/450"}
-                    alt={proyecto.title}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    width={800}
-                    height={450}
-                    priority
-                  />
-                </div>
+                <div className="relative w-full aspect-[16/9] overflow-hidden">
+                <Image
+                  src={proyecto.image || "/api/placeholder/800/450"}
+                  alt={proyecto.title}
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  priority
+                />
+              </div>
                 <div className="flex-1 p-6 flex flex-col">
                   <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
                     <span>{proyecto.date}</span>
