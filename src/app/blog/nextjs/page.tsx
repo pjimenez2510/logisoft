@@ -60,8 +60,8 @@ export default function Page() {
                   <div className="relative aspect-video overflow-hidden rounded-lg">
                     <iframe
                       className="w-full h-full"
-                      src="https://www.youtube.com/embed/__mSgDEOyv8"
-                      title="Introducción a Next.js"
+                      src="https://www.youtube.com/embed/_sY0ibEa79Q"
+                      title="Explicación de Next.js"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
